@@ -1,34 +1,38 @@
+import { useState, useEffect } from "react";
 
 const FruitListByGroup =  (props) => { 
+    const [groupByDetail, setGroupByDetail] = useState([]);
 
-    const grouping = ()=>{
+    useEffect(() => {
         const groupedByFamily = props.fruitDetails.reduce((acc, fruit) => {
-            const key = props.groupByValue.toLowerCase();
-            console.log(key)
+            const key = fruit[props.groupByValue.toLowerCase()];
             if (!acc[key]) {
-            acc[fruit[key]] = [];
+            acc[key] = [];
             }
-            acc[fruit.key].push(fruit);
+            acc[key].push(fruit);
             return acc;
         }, {});
+        setGroupByDetail(groupedByFamily);
         console.log(groupedByFamily)
-    }
-    grouping();
-    return (
-     <>
-        {/* {        Object.keys(props.groupByDetail).map((group) => (
+      }, [props.groupByValue]);
+
+    const showData =
+        Object.keys(groupByDetail).map((group) => (
             <div key={group}>
               <h3>{group}</h3>
+              <button  onClick = {() => props.addToJarGroup(group,props.groupByValue)}>Add</button>
               <ul>
-                {props.groupByDetail[group].map((fruit) => (
+                {groupByDetail[group].map((fruit) => (
                   <li key={fruit.name}>
                     {fruit.name} ({fruit.nutritions.calories} calories)
                   </li>
                 ))}
               </ul>
             </div>
-          ))} */}
-          {props.groupByValue}
+          ))
+    return (
+     <>
+        {showData}
     </>
 );}
 

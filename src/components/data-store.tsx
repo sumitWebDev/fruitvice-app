@@ -44,10 +44,23 @@ const DataStore = () => {
     fetchData();
   }, []);
 
-  const addToJar = (id:any) => {
+  const addToJar = (id:number) => {
     const fruit = fruitDetails.find((item) => item.id === id);
     if (fruit) {
       setFruitJar([...fruitJar, fruit]);
+    }
+  };
+  console.log(fruitDetails)
+  
+  
+  const addToJarGroup = (group: keyof FruitDetailsProps,value: keyof FruitDetailsProps) => {
+   const fruit = fruitDetails.filter((item) => (item[value] === group));
+    console.log(group)
+    console.log(value)
+    console.log(fruit)
+
+    if (fruit) {
+      setFruitJar([...fruitJar, ...fruit ]);
     }
   };
   console.log(fruitDetails)
@@ -67,14 +80,11 @@ const DataStore = () => {
     <option value="genus">Genus</option>
     </select>
 
-    {groupByValue !== 'none' ?  (<FruitListByGroup fruitDetails={fruitDetails} groupByValue={groupByValue}/> )   : 
-    
-    (<div style={{ width: "900px", height: "200px" }}>
-        <FruitJar fruitDetails={fruitDetails} addToJar={addToJar} />
-      </div> )  
-      
-    }
 
+    
+  <div style={{ width: "900px", height: "200px" }}>
+    {groupByValue !== 'none' ?  (<FruitListByGroup fruitDetails={fruitDetails} groupByValue={groupByValue} addToJarGroup={addToJarGroup} />  )   : (<FruitJar fruitDetails={fruitDetails} addToJar={addToJar} />)    }
+      </div> 
       <FruitList fruitJar={fruitJar} />
     </>
   );
