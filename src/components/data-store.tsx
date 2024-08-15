@@ -2,6 +2,14 @@ import { useState, useEffect } from "react";
 import FruitJar from "./fruit-jar";
 import FruitList from "./fruit-list";
 import FruitListByGroup from "./fruitlist-bygroup";
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import '../styles/data-store.css';
+var LogoImg = require ('../assets/logo-img.png');
+var LogoTitle = require ('../assets/logo-title.png');
 
 const DataStore = () => {
   type FruitDetailsProps = {
@@ -55,9 +63,6 @@ const DataStore = () => {
   
   const addToJarGroup = (group: keyof FruitDetailsProps,value: keyof FruitDetailsProps) => {
    const fruit = fruitDetails.filter((item) => (item[value] === group));
-    console.log(group)
-    console.log(value)
-    console.log(fruit)
 
     if (fruit) {
       setFruitJar([...fruitJar, ...fruit ]);
@@ -72,20 +77,30 @@ const DataStore = () => {
 
   return (
     <>
-    <label htmlFor="groupBy">Group By:</label>
-    <select name="groupBy" id="groupBy" onChange={(e) => groupBy(e)}>
-    <option value="none">None</option>
-    <option value="family">Family</option>
-    <option value="order">Order</option>
-    <option value="genus">Genus</option>
-    </select>
-
-
+  <Navbar className="text-center">
+    <Navbar.Brand className="images-header mx-auto">
+      <img src={LogoImg} className=" mx-auto LogoImg" alt="Fruit Jar" width={100} height={100}/>
+      <img src={LogoTitle} className=" mx-auto LogoImg" alt="Fruit Jar"  width={150} height={80}/>
+    </Navbar.Brand>
+  </Navbar>
     
-  <div style={{ width: "900px", height: "200px" }}>
-    {groupByValue !== 'none' ?  (<FruitListByGroup fruitDetails={fruitDetails} groupByValue={groupByValue} addToJarGroup={addToJarGroup} />  )   : (<FruitJar fruitDetails={fruitDetails} addToJar={addToJar} />)    }
-      </div> 
-      <FruitList fruitJar={fruitJar} />
+  <Container>
+    <Row>
+      <Col>
+        <label htmlFor="groupBy" className="my-3 fw-bold">Group Fruits By ( Order/Genus/Family ) :</label>
+        <Form.Select size="lg" name="groupBy" id="groupBy" onChange={(e) => groupBy(e)} className="w-25 p-1 fs-6 shadow-none border-none mb-3">
+          <option value="none">None</option>
+          <option value="family">Family</option>
+          <option value="order">Order</option>
+          <option value="genus">Genus</option>
+        </Form.Select >
+          {groupByValue !== 'none' ?  (<FruitListByGroup fruitDetails={fruitDetails} groupByValue={groupByValue} addToJarGroup={addToJarGroup} />  )   : (<FruitList fruitDetails={fruitDetails} addToJar={addToJar} />)    }
+      </Col>
+      <Col>
+        <FruitJar fruitJar={fruitJar} />
+      </Col>
+    </Row> 
+  </Container>   
     </>
   );
 };

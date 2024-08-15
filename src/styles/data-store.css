@@ -1,0 +1,53 @@
+body{
+    background-color: #f4f4f4 !important;
+}
+
+nav{
+    background-color: #ff3556e3;
+    padding: 0px !important;
+}
+
+.LogoImg, .LogoTitle{
+    border-radius: 61px;
+    border: 1px transparent;
+    background: transparent;
+    padding: .25rem;
+}
+
+.images-header{
+    padding: 0px !important;
+}
+
+.form-select:focus{
+    border-color: none !important;
+}
+
+#addToJar{
+    color : white;
+    background-color: #ff3556e3;
+    outline: none;
+    border-color: #ff3556e3;
+}
+
+#addToJar{
+    color : white;
+    background-color: #ff3556e3;
+}
+
+.accordion-item:nth-child(even) .accordion-button{
+    background-color: #ff3556e3;
+    color : white;
+    font-weight: bold;
+}
+.accordion-item:nth-child(odd) .accordion-button{
+    font-weight: bold;
+}
+
+.fruit-jar-logo{
+    position: relative;
+    left: 39%;
+}
+
+.table-responsive-sm {
+    height:300px;
+}

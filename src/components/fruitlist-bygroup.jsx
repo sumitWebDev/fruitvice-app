@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const FruitListByGroup =  (props) => { 
     const [groupByDetail, setGroupByDetail] = useState([]);
@@ -18,21 +22,34 @@ const FruitListByGroup =  (props) => {
 
     const showData =
         Object.keys(groupByDetail).map((group) => (
-            <div key={group}>
-              <h3>{group}</h3>
-              <button  onClick = {() => props.addToJarGroup(group,props.groupByValue)}>Add</button>
-              <ul>
+            <Accordion.Item key={group} eventKey={group}>
+              <Accordion.Header>{group}
+              </Accordion.Header>
+              <Accordion.Body>
                 {groupByDetail[group].map((fruit) => (
-                  <li key={fruit.name}>
-                    {fruit.name} ({fruit.nutritions.calories} calories)
-                  </li>
+                  <>
+                  <Row>
+                    <Col key={fruit.name} xs={6}>
+                        <span className="px-2 fw-bold">Fruit Name - </span>
+                        <span className="px-0.3">{fruit.name}</span>
+                      </Col>
+                    <Col>
+                        <span className="px-2 fw-bold">Calories - </span>
+                        <span>{fruit.nutritions.calories}</span>
+                    </Col>
+                  </Row>
+
+                  </>
                 ))}
-              </ul>
-            </div>
+                <Button variant="primary" onClick = {() => props.addToJarGroup(group,props.groupByValue)} size="sm" id='addToJar' className="my-2">Add all to Fruit Jar</Button>
+              </Accordion.Body>
+            </Accordion.Item>
           ))
     return (
      <>
+    <Accordion>
         {showData}
+        </Accordion>
     </>
 );}
 
