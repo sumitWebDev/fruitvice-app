@@ -19,3 +19,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mobile-only {
+  display: none; /* Hide by default */
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block; /* Show on mobile */
+  }
+}

@@ -51,3 +51,10 @@ nav{
     font-size: 26px;
     font-weight: bold;
 }
+
+.toast{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99;
+}

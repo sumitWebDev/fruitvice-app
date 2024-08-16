@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
+import Notification from '../utilities/toats';
 
 import '../styles/data-store.css';
 
@@ -35,6 +36,7 @@ const DataStore = () => {
   const [fruitDetails, setFruitDetails] = useState<FruitDetailsProps[]>([]);
   const [fruitJar, setFruitJar] = useState<FruitDetailsProps[]>([]);
   const [groupByValue, setGroupByValue] = useState('none');
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,6 +60,7 @@ const DataStore = () => {
     const fruit = fruitDetails.find((item) => item.id === id);
     if (fruit) {
       setFruitJar([...fruitJar, fruit]);
+      setShowNotification(true)
     }
   };
   
@@ -65,12 +68,16 @@ const DataStore = () => {
     setFruitJar([]);
   }
   
+  const resetNotification = (isShow:any) =>{
+    setShowNotification(isShow)
+  }
   
   const addToJarGroup = (group: keyof FruitDetailsProps,value: keyof FruitDetailsProps) => {
    const fruit = fruitDetails.filter((item) => (item[value] === group));
 
     if (fruit) {
       setFruitJar([...fruitJar, ...fruit ]);
+      setShowNotification(true)
     }
   };
 
@@ -80,6 +87,8 @@ const DataStore = () => {
 
   return (
     <>
+
+    <Notification isShow={showNotification} resetNotification={resetNotification}/>
   <Navbar className="text-center">
     <Navbar.Brand className="images-header mx-auto">
       <img src={LogoImg} className=" mx-auto LogoImg" alt="Fruit Jar" width={100} height={100}/>
