@@ -1,4 +1,3 @@
-![Netlify](https://img.shields.io/netlify/f1ea747b-d055-4286-bff7-bc4bbc4eeead)
 
 # [Fruit Calorie Application](https://fruit-calorie.netlify.app)
 
