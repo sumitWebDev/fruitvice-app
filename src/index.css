@@ -1,8 +1,16 @@
+@font-face {
+  font-family: 'Lato-Regular';
+  src: local('MyFont'), url(./assets/fonts/Lato-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'HappyMonkey-Regular';
+  src: local('MyFont'), url(./assets/fonts/HappyMonkey-Regular.woff2) format('woff2');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lato-Regular' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

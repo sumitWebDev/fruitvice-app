@@ -8,8 +8,6 @@ nav{
 }
 
 .LogoImg, .LogoTitle{
-    border-radius: 61px;
-    border: 1px transparent;
     background: transparent;
     padding: .25rem;
 }
@@ -43,11 +41,13 @@ nav{
     font-weight: bold;
 }
 
-.fruit-jar-logo{
-    position: relative;
-    left: 39%;
+.table-responsive-sm {
+    max-height: 500px;
+    overflow-y: auto;
 }
 
-.table-responsive-sm {
-    height:300px;
+.total-calories-text{
+    font-family: 'HappyMonkey-Regular';
+    font-size: 26px;
+    font-weight: bold;
 }

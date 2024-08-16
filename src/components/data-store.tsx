@@ -8,10 +8,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import '../styles/data-store.css';
+
+//Logo Imports
 var LogoImg = require ('../assets/logo-img.png');
 var LogoTitle = require ('../assets/logo-title.png');
 
 const DataStore = () => {
+
   type FruitDetailsProps = {
     name: string;
     id: number;
@@ -29,6 +32,7 @@ const DataStore = () => {
    interface GroupedFruits {
     [key: string]: FruitDetailsProps[];
   }
+  
   const [fruitDetails, setFruitDetails] = useState<FruitDetailsProps[]>([]);
   const [fruitJar, setFruitJar] = useState<FruitDetailsProps[]>([]);
   const [groupByValue, setGroupByValue] = useState('none');
@@ -58,7 +62,10 @@ const DataStore = () => {
       setFruitJar([...fruitJar, fruit]);
     }
   };
-  console.log(fruitDetails)
+  
+  const removeFromJar = () =>{
+    setFruitJar([]);
+  }
   
   
   const addToJarGroup = (group: keyof FruitDetailsProps,value: keyof FruitDetailsProps) => {
@@ -68,8 +75,6 @@ const DataStore = () => {
       setFruitJar([...fruitJar, ...fruit ]);
     }
   };
-  console.log(fruitDetails)
-
 
   const groupBy = (e:any)=>{
     setGroupByValue(e.target.value);
@@ -86,7 +91,7 @@ const DataStore = () => {
     
   <Container>
     <Row>
-      <Col>
+      <Col lg={6}>
         <label htmlFor="groupBy" className="my-3 fw-bold">Group Fruits By ( Order/Genus/Family ) :</label>
         <Form.Select size="lg" name="groupBy" id="groupBy" onChange={(e) => groupBy(e)} className="w-25 p-1 fs-6 shadow-none border-none mb-3">
           <option value="none">None</option>
@@ -96,9 +101,7 @@ const DataStore = () => {
         </Form.Select >
           {groupByValue !== 'none' ?  (<FruitListByGroup fruitDetails={fruitDetails} groupByValue={groupByValue} addToJarGroup={addToJarGroup} />  )   : (<FruitList fruitDetails={fruitDetails} addToJar={addToJar} />)    }
       </Col>
-      <Col>
-        <FruitJar fruitJar={fruitJar} />
-      </Col>
+      {fruitJar.length ?  (<FruitJar fruitJar={fruitJar} removeFromJar={removeFromJar}/>) : (' ') }
     </Row> 
   </Container>   
     </>

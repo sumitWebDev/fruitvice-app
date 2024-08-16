@@ -17,8 +17,8 @@ const FruitList =  (props:any) => {
                 <ListGroup.Item className='py-2'>
                 <Row>
                     <Col xs={6}>
-                        <span className="px-2 fw-bold">Fruit Name - </span>
-                        <span className="px-0.3">{item.name}</span>
+                        <span className="px-1 fw-bold">Fruit Name - </span>
+                        <span className="px-1">{item.name}</span>
                     </Col>
                     <Col>
                         <span className="px-2 fw-bold">Calories - </span>
@@ -34,7 +34,10 @@ const FruitList =  (props:any) => {
 
     return (
      <>
-        {fruitName}
+        <div className="ListGroupContainer">
+            {fruitName}
+        </div>
+        
     </>
 );}
 

@@ -17,19 +17,18 @@ const FruitListByGroup =  (props) => {
             return acc;
         }, {});
         setGroupByDetail(groupedByFamily);
-        console.log(groupedByFamily)
       }, [props.groupByValue]);
 
     const showData =
-        Object.keys(groupByDetail).map((group) => (
-            <Accordion.Item key={group} eventKey={group}>
-              <Accordion.Header>{group}
+        Object.keys(groupByDetail).map((group,index) => (
+            <Accordion.Item key={index}eventKey={group}>
+              <Accordion.Header key={`${group}-${index}`} >{group}
               </Accordion.Header>
               <Accordion.Body>
                 {groupByDetail[group].map((fruit) => (
                   <>
                   <Row>
-                    <Col key={fruit.name} xs={6}>
+                    <Col key={fruit.id} xs={6}>
                         <span className="px-2 fw-bold">Fruit Name - </span>
                         <span className="px-0.3">{fruit.name}</span>
                       </Col>
