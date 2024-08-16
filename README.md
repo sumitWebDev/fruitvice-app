@@ -4,6 +4,7 @@ Welcome to the Fruit Calorie Application! This project is a coding exercise desi
 The application is deployed at - https://fruit-calorie.netlify.app
 
 I have created a video presentation as well - https://www.loom.com/share/96cfbfaa1e434241afaac638c1626f3d 
+![Fruit List Application](./FruitCalorie.jpg)
 
 ## Task Overview
 
