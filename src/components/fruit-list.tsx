@@ -3,18 +3,25 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const FruitList =  (props:any) => { 
-
-    type fruitDetailsProps = {
-        id: number;
-        name: string;
-        nutritions:{
-            calories: string
-        }
+type FruitDetailsProps = {
+    name: string;
+    id: number;
+    family: string;
+    order: string;
+    genus: string;
+    nutritions: {
+        calories: number;
+        fat: number;
+        sugar: number;
+        carbohydrates: number;
+        protein: number;
     };
-    const fruitName = props.fruitDetails.map((item:fruitDetailsProps)=>(
-            <ListGroup key={item.id}>
-                <ListGroup.Item className='py-2'>
+};
+const FruitList = (props: any) => {
+
+    const fruitName = props.fruitDetails.map((item: FruitDetailsProps) => (
+        <ListGroup key={item.id}>
+            <ListGroup.Item className='py-2'>
                 <Row>
                     <Col xs={6}>
                         <span className="px-1 fw-bold">Fruit Name - </span>
@@ -25,20 +32,21 @@ const FruitList =  (props:any) => {
                         <span>{item.nutritions.calories} </span>
                     </Col>
                     <Col>
-                        <Button onClick = {() => props.addToJar(item.id)} size="sm" id='addToJar'>Add to Jar</Button>
+                        <Button onClick={() => props.addToJar(item.id)} size="sm" id='addToJar'>Add to Jar</Button>
                     </Col>
                 </Row>
-                </ListGroup.Item>
-            </ListGroup>
+            </ListGroup.Item>
+        </ListGroup>
     ))
 
     return (
-     <>
-        <div className="ListGroupContainer">
-            {fruitName}
-        </div>
-        
-    </>
-);}
+        <>
+            <div className="ListGroupContainer">
+                {fruitName}
+            </div>
+
+        </>
+    );
+}
 
 export default FruitList;
