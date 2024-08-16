@@ -1,3 +1,5 @@
+![Netlify](https://img.shields.io/netlify/f1ea747b-d055-4286-bff7-bc4bbc4eeead)
+
 # [Fruit Calorie Application](https://fruit-calorie.netlify.app)
 
 Welcome to the Fruit Calorie Application! This project is a coding exercise designed to showcase skills in React and TypeScript. The application displays a list of fruits fetched from the Fruityvice API and allows users to group, add, and manage fruits in a jar.
@@ -58,3 +60,11 @@ The goal of this exercise is to create a basic React and TypeScript application 
 ## Packagaes Used 
 
 1. React Bootsrap for UI styling
+
+![Netlify](https://img.shields.io/netlify/f1ea747b-d055-4286-bff7-bc4bbc4eeead)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/sumitWebDev/fruitvice-app)
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
