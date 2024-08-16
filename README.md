@@ -2,6 +2,7 @@
 # [Fruit Calorie Application](https://fruit-calorie.netlify.app)
 
 Welcome to the Fruit Calorie Application! This project is a coding exercise designed to showcase skills in React and TypeScript. The application displays a list of fruits fetched from the Fruityvice API and allows users to group, add, and manage fruits in a jar.
+Open the URL https://cors-anywhere.herokuapp.com/https://www.fruityvice.com/api/fruit/all and give access to the demo server. FruityVice does not allow to freely use their api so I got a public api URL.
 The application is deployed at - https://fruit-calorie.netlify.app
 
 I have created a video presentation as well - `https://www.loom.com/share/96cfbfaa1e434241afaac638c1626f3d`
