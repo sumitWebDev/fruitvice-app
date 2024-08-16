@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import Spinner from 'react-bootstrap/Spinner';
+
 import '../styles/data-store.css';
 
 //Logo Imports
@@ -37,7 +39,7 @@ const DataStore = () => {
   useEffect(() => {
     const fetchData = async () => {
       try{      
-        const response = await fetch("https://www.fruityvice.com/api/fruit/all", {
+        const response = await fetch("https://cors-anywhere.herokuapp.com/https://www.fruityvice.com/api/fruit/all", {
         method: "GET",
       });
       const jsonData = await response.json();
@@ -95,7 +97,7 @@ const DataStore = () => {
           <option value="order">Order</option>
           <option value="genus">Genus</option>
         </Form.Select >
-          {groupByValue !== 'none' ?  (<FruitListByGroup fruitDetails={fruitDetails} groupByValue={groupByValue} addToJarGroup={addToJarGroup} />  )   : (<FruitList fruitDetails={fruitDetails} addToJar={addToJar} />)    }
+          {groupByValue !== 'none' ?  (<FruitListByGroup fruitDetails={fruitDetails} groupByValue={groupByValue} addToJarGroup={addToJarGroup} />  )   : fruitDetails.length ? (<FruitList fruitDetails={fruitDetails} addToJar={addToJar} />) : <Spinner animation="border" variant="danger" />}
       </Col>
       {fruitJar.length ?  (<FruitJar fruitJar={fruitJar} removeFromJar={removeFromJar}/>) : (' ') }
     </Row> 
