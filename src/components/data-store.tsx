@@ -29,14 +29,10 @@ const DataStore = () => {
     protein: number;
     };
    };
-   interface GroupedFruits {
-    [key: string]: FruitDetailsProps[];
-  }
   
   const [fruitDetails, setFruitDetails] = useState<FruitDetailsProps[]>([]);
   const [fruitJar, setFruitJar] = useState<FruitDetailsProps[]>([]);
   const [groupByValue, setGroupByValue] = useState('none');
-  //const [groupFruitDetails, setGroupFruitDetails] = useState<GroupedFruits[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -17,7 +17,7 @@ const FruitListByGroup =  (props) => {
             return acc;
         }, {});
         setGroupByDetail(groupedByFamily);
-      }, [props.groupByValue]);
+      }, [props.groupByValue,props.fruitDetails]);
 
     const showData =
         Object.keys(groupByDetail).map((group,index) => (
