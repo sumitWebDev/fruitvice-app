@@ -56,6 +56,7 @@ The goal of this exercise is to create a basic React and TypeScript application 
    npm start
 5. Open your browser and navigate to http://localhost:3000 to view the application or navigate to https://fruit-calorie.netlify.app/ where the application is deployed
 
+6. Open the URL https://cors-anywhere.herokuapp.com/https://www.fruityvice.com/api/fruit/all and give access to the demo server. FruityVice does not allow to freely use their api so I got a public api url. 
 ## Packagaes Used 
 
 1. React Bootsrap for UI styling
