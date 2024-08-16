@@ -3,7 +3,9 @@
 Welcome to the Fruit Calorie Application! This project is a coding exercise designed to showcase skills in React and TypeScript. The application displays a list of fruits fetched from the Fruityvice API and allows users to group, add, and manage fruits in a jar.
 The application is deployed at - https://fruit-calorie.netlify.app
 
-I have created a video presentation as well - https://www.loom.com/share/96cfbfaa1e434241afaac638c1626f3d 
+I have created a video presentation as well - `https://www.loom.com/share/96cfbfaa1e434241afaac638c1626f3d`
+
+Web Application Screenshots - 
 ![Fruit List Application](./FruitCalorie.jpg)
 
 ## Task Overview
